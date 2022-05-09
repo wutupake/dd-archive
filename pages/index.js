@@ -1,13 +1,44 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-
+// lib
 import { getAllEpisodes } from '../lib/episodes';
-
+import { request } from '../lib/datocms';
+// styles
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
-  const episodes = getAllEpisodes();
+const HOMEPAGE_QUERY = `
+query MyQuery {
+  allEpisodes {
+    aired
+    episode
+    excerpt
+    season
+    slug
+    title
+    tracklist
+    module {
+      mediaTextField {
+        value
+      }
+    }
+  }
+}
+`;
+
+export async function getStaticProps() {
+  const data = await request({
+    query: HOMEPAGE_QUERY,
+  });
+  return {
+    props: { data }
+  };
+}
+
+export default function Home(props) {
+  // const episodes = getAllEpisodes();
+  const { data } = props;
+  const episodes = data.allEpisodes;
   return (
     <div className={styles.container}>
       <Head>

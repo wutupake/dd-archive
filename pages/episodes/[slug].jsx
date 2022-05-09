@@ -8,6 +8,8 @@ export default function Episode(props) {
       <Link href={'/'}>
         <a>torna alla lista degli episodi</a>
       </Link>
+      <br />
+      <img src={episodeData.cover.url} alt={episodeData.cover.alt} />
       <h1>{episodeData.title}</h1>
       <p>{episodeData.excerpt}</p>
       {episodeData.tracklist}
