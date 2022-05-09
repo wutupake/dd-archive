@@ -88,10 +88,10 @@ export default function Home(props) {
 const CardEpisode = (props) => {
   const { data } = props;
   return (
-    <div className={styles.container}>
+    <div className={styles.card}>
       <Link href={`/episodes/${data.slug}`}>
         <a>
-          <div>{data.season} - {data.episodeNumber} - {data.aired}</div>
+          <div>{data.season} / {data.episodeNumber} / {data.aired}</div>
           <Image data={data.cover.responsiveImage} />
           <h3>{data.title}</h3>
         </a>

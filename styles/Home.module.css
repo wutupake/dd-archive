@@ -18,3 +18,14 @@
   max-height: 80px; */
   margin: 0 auto;
 }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: clamp(320px, 25%, 25vw);
+  padding: 0 .4em 1.6em .4em;
+}

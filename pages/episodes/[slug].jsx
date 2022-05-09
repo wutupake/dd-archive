@@ -22,11 +22,14 @@ export default function Episode(props) {
             <a>torna alla lista degli episodi</a>
           </Link>
           <br />
-          <Image data={episodeData.cover.responsiveImage} />
+          <br />
           <h1>{episodeData.title}</h1>
+          <div className={styles.cover}>
+            <Image data={episodeData.cover.responsiveImage} />
+          </div>
           <p>{episodeData.excerpt}</p>
-          {episodeData.tracklist}
-          {episodeData.player}
+          <div dangerouslySetInnerHTML={{ __html:episodeData.tracklist}} />
+          <div dangerouslySetInnerHTML={{ __html:episodeData.player}} />
         </article>
       </main>
     </div>
