@@ -1,25 +1,48 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
+import { Image } from 'react-datocms';
 // lib
-import { getAllEpisodes } from '../lib/episodes';
 import { request } from '../lib/datocms';
 // styles
 import styles from '../styles/Home.module.css';
 
 const HOMEPAGE_QUERY = `
 query MyQuery {
-  allEpisodes {
-    aired
-    episode
-    excerpt
+  allEpisodes(orderBy: aired_ASC) {
+    id
     season
-    slug
+    episodeNumber
     title
-    tracklist
-    module {
-      mediaTextField {
-        value
+    cover {
+      responsiveImage {
+        alt
+        aspectRatio
+        base64
+        bgColor
+        height
+        sizes
+        src
+        srcSet
+        title
+        width
+      }
+    }
+    aired
+    slug
+  }
+  logo {
+    logo {
+      responsiveImage {
+        alt
+        aspectRatio
+        base64
+        bgColor
+        height
+        sizes
+        src
+        srcSet
+        title
+        width
       }
     }
   }
@@ -36,8 +59,8 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
-  // const episodes = getAllEpisodes();
   const { data } = props;
+  const logo = data.logo.logo;
   const episodes = data.allEpisodes;
   return (
     <div className={styles.container}>
@@ -48,12 +71,12 @@ export default function Home(props) {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.logo}><Image src="/img/layout/logo.png" alt="DIGGIN'DEEPER" width={278} height={108} /></div>
+        <div className={styles.logo}><Image data={logo.responsiveImage} /></div>
         <h3>Diggin&rsquo;Deeper is a program recorded live, homemade, <br />with turntables, vinyls and passion. <br />Respect the music.</h3>
 
         <div className={styles.grid}>
           {episodes.map((ep) => (
-            <EpisodePreview key={ep.id} data={ep} />
+            <CardEpisode key={ep.id} data={ep} />
           ))}
         </div>
       </main>
@@ -62,14 +85,15 @@ export default function Home(props) {
 }
 
 
-const EpisodePreview = (props) => {
+const CardEpisode = (props) => {
   const { data } = props;
   return (
     <div className={styles.container}>
       <Link href={`/episodes/${data.slug}`}>
         <a>
-          {/* <Image src={data.cover.url} alt={data.title} layout='fill' /> */}
-          <h3>episode {data.title}</h3>
+          <div>{data.season} - {data.episodeNumber} - {data.aired}</div>
+          <Image data={data.cover.responsiveImage} />
+          <h3>{data.title}</h3>
         </a>
       </Link>
     </div>
