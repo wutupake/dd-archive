@@ -28,6 +28,7 @@
 .article {
   margin: 0 auto;
   max-width: 60rem;
+  line-height: 1.4;
 }
 
 .title {
@@ -69,7 +70,7 @@
 .footer {
   padding: 2rem 0;
   font-family: NexaSlab-Light;
-  line-height: 1.1rem;
+  line-height: 1.4;
   font-size: clamp(0.7rem, 2vw, 0.76rem);
   color: rgba(255,255,255,.3);
   max-width: 60rem;
