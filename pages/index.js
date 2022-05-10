@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css';
 
 const HOMEPAGE_QUERY = `
 query MyQuery {
-  allEpisodes(orderBy: aired_ASC) {
+  allEpisodes(orderBy: aired_ASC, first: 30) {
     id
     season
     episodeNumber
@@ -72,7 +72,7 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <div className={styles.logo}><Image data={logo.responsiveImage} /></div>
-        <h3>Diggin&rsquo;Deeper is a program recorded live, homemade, <br />with turntables, vinyls and passion. <br />Respect the music.</h3>
+        <h2 className={styles.motto}>Diggin&rsquo;Deeper <del>is</del> <em>was</em> a program recorded live, homemade, with turntables, vinyl and passion.</h2>
 
         <div className={styles.grid}>
           {episodes.map((ep) => (
@@ -91,9 +91,9 @@ const CardEpisode = (props) => {
     <div className={styles.card}>
       <Link href={`/episodes/${data.slug}`}>
         <a>
-          <div>{data.season} / {data.episodeNumber} / {data.aired}</div>
+          <div className={styles.pretitle}>S0{data.season} | EP{data.episodeNumber}</div>
           <Image data={data.cover.responsiveImage} />
-          <h3>{data.title}</h3>
+          <h4 className={styles.title}>{data.title}</h4>
         </a>
       </Link>
     </div>

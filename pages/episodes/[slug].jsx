@@ -19,17 +19,17 @@ export default function Episode(props) {
       <main className={styles.main}>
         <article>
           <Link href={'/'}>
-            <a>torna alla lista degli episodi</a>
+            <a>⬅ torna alla lista degli episodi</a>
           </Link>
           <br />
           <br />
           <h1>{episodeData.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html:episodeData.player}} />
+          <p>{episodeData.excerpt}</p>
           <div className={styles.cover}>
             <Image data={episodeData.cover.responsiveImage} />
           </div>
-          <p>{episodeData.excerpt}</p>
           <div dangerouslySetInnerHTML={{ __html:episodeData.tracklist}} />
-          <div dangerouslySetInnerHTML={{ __html:episodeData.player}} />
         </article>
       </main>
     </div>
@@ -38,7 +38,7 @@ export default function Episode(props) {
 
 const PATHS_QUERY = `
 query MyQuery {
-  allEpisodes {
+  allEpisodes(first: 30) {
     slug
   }
 }

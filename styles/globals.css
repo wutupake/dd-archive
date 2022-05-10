@@ -4,6 +4,9 @@ body {
   margin: 0;
   background: #443f4f url(/img/layout/bg.png) 0 0 repeat;
   color: #ece1df;
+  font-family: NexaSlab-Regular;
+  font-weight: normal;
+  font-style: normal;
 }
 
 a {
@@ -13,4 +16,17 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* fonts */
+@font-face {
+  font-family: 'NexaSlab-Light';
+  src: url("/webfonts/27E27D_E_0.eot");
+  src: url("/webfonts/27E27D_E_0.eot?#iefix") format("embedded-opentype"), url("/webfonts/27E27D_E_0.woff") format("woff"), url("/webfonts/27E27D_E_0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'NexaSlab-Regular';
+  src: url("/webfonts/27E27D_10_0.eot");
+  src: url("/webfonts/27E27D_10_0.eot?#iefix") format("embedded-opentype"), url("/webfonts/27E27D_10_0.woff") format("woff"), url("/webfonts/27E27D_10_0.ttf") format("truetype");
 }
