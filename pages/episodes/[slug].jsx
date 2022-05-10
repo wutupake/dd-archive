@@ -17,21 +17,34 @@ export default function Episode(props) {
       </Head>
 
       <main className={styles.main}>
-        <article>
-          <Link href={'/'}>
-            <a>⬅ torna alla lista degli episodi</a>
-          </Link>
-          <br />
-          <br />
-          <h1>{episodeData.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html:episodeData.player}} />
-          <p>{episodeData.excerpt}</p>
-          <div className={styles.cover}>
-            <Image data={episodeData.cover.responsiveImage} />
+        <article className={styles.article}>
+          <div className={styles.back}>
+            <Link href={'/'}>
+              <a>⬅ torna alla lista degli episodi</a>
+            </Link>
           </div>
-          <div dangerouslySetInnerHTML={{ __html:episodeData.tracklist}} />
+          <h1 className={styles.title}>{episodeData.title}</h1>
+          <div className={styles.player} dangerouslySetInnerHTML={{ __html:episodeData.player}} />
+          <div className={styles.excerpt} dangerouslySetInnerHTML={{ __html:episodeData.excerpt}} />
+          <div className={styles.table}>
+            <div className={styles.cover}>
+              <Image data={episodeData.cover.responsiveImage} />
+            </div>
+            <div className={styles.tracklist} dangerouslySetInnerHTML={{ __html:episodeData.tracklist}} />
+          </div>
         </article>
       </main>
+
+      <footer className={styles.footer}>
+        Diggin&rsquo;Deeper è stato un programma andato in onda dal 2013 al 2014 su The Great Complotto Radio.
+        Qui è possibile trovare gli episodi delle due stagioni.
+        Il sito originale non è più online, ma questo ne riprende il design (d&rsquo;altronde l&rsquo;autore è lo stesso).
+        Le caselle di posta sul vecchio dominio non sono più attive.
+        La pagina Facebook è ancora online, ma non è più aggiornata.
+        Le puntate sono ancora caricate su MixCloud.
+        Se sei un vecchio ascoltatore: grazie per il supporto! Se non hai mai sentito Diggin&lsquo;Deeper, e ti va di ascoltarlo, qui puoi farlo <small>😊</small> <br />
+        RESPECT THE MUSIC.
+      </footer>
     </div>
   )
 }

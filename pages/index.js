@@ -80,6 +80,17 @@ export default function Home(props) {
           ))}
         </div>
       </main>
+
+      <footer className={styles.footer}>
+        Diggin&rsquo;Deeper è stato un programma andato in onda dal 2013 al 2014 su The Great Complotto Radio.
+        Qui è possibile trovare gli episodi delle due stagioni.
+        Il sito originale non è più online, ma questo ne riprende il design (d&rsquo;altronde l&rsquo;autore è lo stesso).
+        Le caselle di posta sul vecchio dominio non sono più attive.
+        La pagina Facebook è ancora online, ma non è più aggiornata.
+        Le puntate sono ancora caricate su MixCloud.
+        Se sei un vecchio ascoltatore: grazie per il supporto! Se non hai mai sentito Diggin&lsquo;Deeper, e ti va di ascoltarlo, qui puoi farlo <small>😊</small> <br />
+        RESPECT THE MUSIC.
+      </footer>
     </div>
   )
 }
