@@ -69,7 +69,7 @@
 }
 
 .title {
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   margin: .8rem 0;
   font-size: clamp(.8rem, 4vw, 1rem);
 }
